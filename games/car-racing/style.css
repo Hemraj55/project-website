@@ -95,14 +95,14 @@ body {
     width: 100px;
     height: 150px;
     bottom: -10px;
-    background-image: url("/media/car.png");
+    background-image: url("../../media/car.png");
 }
 
 /* Enemy truck (size unchanged) */
 .enemy {
     width: 110px;
     height: 250px;
-    background-image: url("/media/truck.png");
+    background-image: url("../../media/truck.png");
 }
 
 /* ================= SCREENS ================= */
