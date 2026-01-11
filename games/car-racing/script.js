@@ -7,7 +7,7 @@ const gameArea = document.getElementById("gameArea");
 const road = document.querySelector(".road");
 
 //crash sound
-const crashSound = new Audio("/media/crash.mp3");
+const crashSound = new Audio("../../media/crash.mp3");
 
 // compute lane centers from road element so positions stay aligned
 function computeLaneCenters() {
