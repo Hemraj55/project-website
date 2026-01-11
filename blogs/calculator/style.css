@@ -49,7 +49,7 @@ h1 {
     gap: 8px;
 }
 
-button {
+#buts, .btn-op, .btn-func, .btn-eq, .btn-ac {
     height: 40px;
     font-size: 1.1em;
     border: none;
