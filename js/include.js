@@ -8,13 +8,13 @@ function loadComponent(id, file, callback) {
 }
 
 // Load header
-loadComponent("header", "/components/header.html", () => {
+loadComponent("header", "../../components/header.html", () => {
   setActiveMenu();
   setupSearchListener();
 });
 
 // Load footer
-loadComponent("footer", "/components/footer.html");
+loadComponent("footer", "../../components/footer.html");
 
 function setActiveMenu() {
   const pathname = location.pathname;
