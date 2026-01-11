@@ -1,0 +1,105 @@
+body {
+    font-family: "Poppins", "Roboto", Arial, sans-serif;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 10px;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.content p {
+    font-size: 1.1rem;
+    color: #aaa;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.calculator {
+    width: 100%;
+    max-width: 360px;
+    margin: 20px auto;
+    padding: 20px;
+    background: linear-gradient(135deg, #1a1a1a, #252525);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 255, 204, 0.1);
+}
+
+.display {
+    width: 100%;
+    height: 60px;
+    background: linear-gradient(180deg, #333, #222);
+    color: #00ffcc;
+    font-size: 2em;
+    text-align: right;
+    padding: 8px 12px;
+    border-radius: 6px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+    letter-spacing: 2px;
+    font-weight: 600;
+    border: 2px solid #00ffcc;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+}
+
+button {
+    height: 40px;
+    font-size: 1.1em;
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    background: #333;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-weight: 600;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+#buts:hover {
+    background: linear-gradient(135deg, #00ffcc, #00e6b3);
+    color: #000;
+}
+
+.btn-op {
+    background: linear-gradient(135deg, #FF6B6B, #FF5252);
+}
+
+.btn-op:hover {
+    box-shadow: 0 3px 8px rgba(255, 107, 107, 0.3);
+}
+
+.btn-func {
+    background: linear-gradient(135deg, #4ECDC4, #45B7AA);
+}
+
+.btn-func:hover {
+    box-shadow: 0 3px 8px rgba(78, 205, 196, 0.3);
+}
+
+.btn-eq {
+    background: linear-gradient(135deg, #00ffcc, #00e6b3);
+    color: #000;
+}
+
+.btn-eq:hover {
+    box-shadow: 0 3px 8px rgba(0, 255, 204, 0.3);
+}
+
+.btn-ac {
+    background: linear-gradient(135deg, #FF6B6B, #FF5252);
+}

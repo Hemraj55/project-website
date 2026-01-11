@@ -1,0 +1,84 @@
+body {
+    text-align: center;
+    font-family: "Poppins", "Roboto", Arial, sans-serif;
+    color: black;
+}
+
+/* Style for the heading */
+h1 {
+    font-size: 2.5rem;
+    color: #fff;
+    margin-bottom: 10px;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+p {
+    font-size: 1.1rem;
+    color: #a4a4a4;
+    margin: 0 auto 20px auto;
+    max-width: 400px;
+    line-height: 1.5;
+}
+
+.game-container {
+    max-width: 400px;
+    margin: 30px auto;
+    padding: 30px;
+    background: linear-gradient(135deg, #1a1a1a, #252525);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 255, 204, 0.1);
+}
+
+/* Style for the input box */
+#guess {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    border: 2px solid #00ffcc;
+    border-radius: 8px;
+    outline: none;
+    margin-bottom: 15px;
+    background: #333;
+    color: white;
+    box-sizing: border-box;
+    transition: 0.3s;
+}
+
+/* Input focus effect */
+#guess:focus {
+    border-color: #00ffcc;
+    box-shadow: 0 0 10px rgba(0, 255, 204, 0.5);
+}
+
+
+  #check {
+    width: 100%;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #00ffcc;
+    color: #1a1a1a;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+#check:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 255, 204, 0.3);
+}
+
+#check:active {
+    transform: translateY(0);
+}
+
+/* Style for the result paragraph */
+#result {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-align: center;
+    color: #00ffcc;
+    min-height: 30px;
+}

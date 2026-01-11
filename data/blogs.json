@@ -1,0 +1,20 @@
+[
+  {
+    "title": "Quotes Generator",
+    "description": "Generate inspirational quotes",
+    "category": "Quotes",
+    "link": "blogs/quotes/index.html"
+  },
+  {
+    "title": "Calculator",
+    "description": "calculate basic arithmetic operations",
+    "category": "Utility",
+    "link": "blogs/calculator/index.html"
+  },
+    {
+    "title": "TO-DO List",
+    "description": "Manage your tasks and stay organized",
+    "category": "Productivity",
+    "link": "blogs/to-do-list/index.html"
+  }
+]

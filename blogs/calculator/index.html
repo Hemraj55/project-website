@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body>
+
+    <div id="header"></div>
+
+    <main>
+        <div class="content">
+            <h1>🧮 Scientific Calculator</h1>
+            <p>Calculate what you want using this scientific calculator.</p>
+            <div class="calculator">
+                <div id="display" class="display">0</div>
+                <div class="buttons">
+                    <button class="btn-ac" onclick="clearDisplay()">AC</button>
+                    <button class="btn-func" onclick="input('(')">(</button>
+                    <button class="btn-func" onclick="input(')')">)</button>
+                    <button class="btn-func" onclick="input('^')">^</button>
+                    <button class="btn-op" onclick="input('/')">÷</button>
+                    <button id="buts" onclick="input('7')">7</button>
+                    <button id="buts" onclick="input('8')">8</button>
+                    <button id="buts" onclick="input('9')">9</button>
+                    <button class="btn-op" onclick="input('*')">×</button>
+                    <button class="btn-func" onclick="input('sqrt(')">√</button>
+                    <button id="buts" onclick="input('4')">4</button>
+                    <button id="buts" onclick="input('5')">5</button>
+                    <button id="buts" onclick="input('6')">6</button>
+                    <button class="btn-op" onclick="input('-')">−</button>
+                    <button class="btn-func" onclick="input('log(')">log</button>
+                    <button id="buts" onclick="input('1')">1</button>
+                    <button id="buts" onclick="input('2')">2</button>
+                    <button id="buts" onclick="input('3')">3</button>
+                    <button class="btn-op" onclick="input('+')">+</button>
+                    <button class="btn-func" onclick="input('ln(')">ln</button>
+                    <button id="buts" onclick="input('0')">0</button>
+                    <button id="buts" onclick="input('.')">.</button>
+                    <button id="buts" onclick="backspace()">←</button>
+                    <button class="btn-eq" onclick="calculate()">=</button>
+                    <button class="btn-func" onclick="input('pi')">π</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer"></div>
+
+    <script src="../../js/include.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>    <div id="footer"></div>
+
+    <script src="../../js/include.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

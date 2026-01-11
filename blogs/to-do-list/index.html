@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>To-Do List</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body>
+
+  <div id="header"></div>
+
+  <main>
+    <div class="content">
+      <h1>✓ My To-Do List</h1>
+      <p>Organize your tasks and stay productive.</p>
+
+      <div class="todo-container">
+        <form id="todo-form">
+          <input type="text" id="todo-input" placeholder="Add a new task..." required>
+          <button type="submit">Add Task</button>
+        </form>
+        <div class="todo-filters">
+          <button id="filter-all" class="filter-btn active">All</button>
+          <button id="filter-active" class="filter-btn">Active</button>
+          <button id="filter-completed" class="filter-btn">Completed</button>
+        </div>
+        <ul id="todo-list"></ul>
+        <div id="todo-stats"></div>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer"></div>
+
+  <script src="../../js/include.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>

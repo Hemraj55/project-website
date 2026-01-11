@@ -1,0 +1,177 @@
+body {
+    font-family: "Poppins", "Roboto", Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #fff;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 10px;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.content p {
+    font-size: 1.1rem;
+    color: #aaa;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.todo-container {
+    max-width: 700px;
+    margin: 30px auto;
+    background: linear-gradient(135deg, #1a1a1a, #252525);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 255, 204, 0.1);
+    border: 2px solid #00ffcc;
+}
+
+#todo-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 16px;
+    padding: 16px;
+    background: linear-gradient(135deg, #1a4d5c, #0f3a47);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 255, 204, 0.1);
+}
+
+#todo-input {
+    flex: 1;
+    padding: 12px;
+    border-radius: 6px;
+    border: 2px solid #00ffcc;
+    font-size: 1em;
+    transition: all 0.3s ease;
+    background: #333;
+    color: #fff;
+}
+
+#todo-input:focus {
+    border: 2px solid #00ffcc;
+    outline: none;
+    box-shadow: 0 0 10px rgba(0, 255, 204, 0.3);
+}
+
+#todo-form button {
+    padding: 12px 20px;
+    background: linear-gradient(135deg, #00ffcc, #00e6b3);
+    color: #000;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 110px;
+}
+
+#todo-form button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 255, 204, 0.3);
+}
+
+.todo-filters {
+    margin-bottom: 16px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 8px 16px;
+    border: 2px solid #00ffcc;
+    border-radius: 6px;
+    background: transparent;
+    color: #00ffcc;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+    background: rgba(0, 255, 204, 0.1);
+}
+
+.filter-btn.active {
+    background: linear-gradient(135deg, #00ffcc, #00e6b3);
+    color: #000;
+}
+
+#todo-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.todo-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(135deg, #222, #1a1a1a);
+    margin-bottom: 8px;
+    padding: 12px 14px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    border-left: 4px solid #00ffcc;
+}
+
+.todo-item:hover {
+    transform: translateX(5px);
+    box-shadow: 0 2px 8px rgba(0, 255, 204, 0.1);
+}
+
+.todo-item.completed {
+    background: linear-gradient(135deg, #1a3a2a, #0f2620);
+    text-decoration: line-through;
+    color: #666;
+    border-left-color: #00b896;
+}
+
+.todo-actions {
+    display: flex;
+    gap: 6px;
+    margin-left: auto;
+}
+
+.todo-actions button {
+    background: #333;
+    border: none;
+    border-radius: 4px;
+    padding: 4px 10px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: all 0.2s ease;
+    color: #fff;
+    font-weight: 600;
+}
+
+.todo-actions button:hover {
+    transform: translateY(-2px);
+}
+
+.todo-actions button.edit {
+    background: linear-gradient(135deg, #FFB74D, #FFA726);
+    color: #000;
+}
+
+.todo-actions button.delete {
+    background: linear-gradient(135deg, #FF6B6B, #FF5252);
+    color: #fff;
+}
+
+.todo-actions button.complete {
+    background: linear-gradient(135deg, #4ECDC4, #45B7AA);
+    color: #000;
+}
+
+#todo-stats {
+    margin-top: 12px;
+    font-size: 1em;
+    color: #aaa;
+    text-align: center;
+}

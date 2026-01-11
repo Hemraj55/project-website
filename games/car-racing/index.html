@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3 Lane Racing Game</title>
+    <link rel="stylesheet" href="style.css">
+     <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body>
+
+    <div id="header"></div>
+    <main>
+        <div class="content">
+            <h1 class="title">🚗 Racing Game</h1>
+
+            <div id="gameArea">
+
+                <div id="score">Score: 0</div>
+
+                <!-- Road -->
+                <div class="road">
+                    <div class="lane-line l1"></div>
+                    <div class="lane-line l2"></div>
+                </div>
+
+                <!-- Grass -->
+                <div class="grass left"></div>
+                <div class="grass right"></div>
+
+                <!-- Player -->
+                <div id="player" class="car player-car"></div>
+
+                <!-- Screens -->
+                <div id="startScreen">
+                    <button id="startBtn">Start Game</button>
+                </div>
+
+                <div id="gameOverScreen">
+                    <h2 style="color: antiquewhite;">💥 Game Over</h2>
+                    <button id="restart" onclick="location.reload()">Restart</button>
+                </div>
+
+            </div>
+
+            <p class="info">⬅️ ➡️ Move | Avoid Trucks</p>
+        </div>
+    </main>
+
+    <div id="footer"></div>
+
+    <script src="../../js/include.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
