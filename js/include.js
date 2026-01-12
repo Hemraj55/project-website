@@ -42,12 +42,49 @@ const footerCandidates = [
 
 // Load header
 loadComponent('header', headerCandidates, () => {
+  adjustComponentPaths();
   setActiveMenu();
   setupSearchListener();
 });
 
 // Load footer
 loadComponent('footer', footerCandidates);
+
+// Adjust links and image paths inside loaded components so they point to the site root
+function getBasePath() {
+  const pathname = location.pathname; // e.g. /user/repo/path/page.html or /path/page.html
+  const parts = pathname.split('/').filter(Boolean);
+  // If last part looks like a file (has dot), remove it
+  if (parts.length && parts[parts.length - 1].includes('.')) parts.pop();
+  const depth = parts.length;
+  if (depth === 0) return './';
+  return '../'.repeat(depth);
+}
+
+function adjustComponentPaths() {
+  const base = getBasePath();
+
+  // Update header nav links (use `data-page` attributes to map)
+  const mapping = {
+    index: 'index.html',
+    blogs: 'blogs.html',
+    games: 'games.html',
+    contact: 'contact.html',
+    about: 'about.html'
+  };
+
+  document.querySelectorAll('#header a[data-page]').forEach(link => {
+    const page = link.dataset.page;
+    if (mapping[page]) link.setAttribute('href', base + mapping[page]);
+  });
+
+  // Update footer image paths
+  const img = document.querySelector('#footer img');
+  if (img) {
+    const filename = img.getAttribute('src').split('/').pop();
+    img.setAttribute('src', base + 'media/' + filename);
+  }
+}
 
 function setActiveMenu() {
   const pathname = location.pathname;
