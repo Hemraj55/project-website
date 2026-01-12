@@ -51,22 +51,36 @@ loadComponent('header', headerCandidates, () => {
 loadComponent('footer', footerCandidates);
 
 // Adjust links and image paths inside loaded components so they point to the site root
-async function detectBasePath() {
-  const candidates = ['./', '../', '../../', '../../../', '../../../../'];
-  for (const prefix of candidates) {
-    try {
-      const url = prefix + 'index.html';
-      const res = await fetch(url, { method: 'HEAD' });
-      if (res && res.ok) return prefix;
-    } catch (e) {
-      // ignore and try next
+function computeBasePath() {
+  // For GitHub Pages project sites like hemraj55.github.io/project-website/
+  // pathname is e.g. /project-website/blogs/calculator/index.html
+  // We need to extract depth relative to site root (ignoring project folder)
+  
+  const pathname = location.pathname;
+  const parts = pathname.split('/').filter(Boolean);
+  
+  // Remove the file name if present (last part if contains a dot)
+  if (parts.length && parts[parts.length - 1].includes('.')) {
+    parts.pop();
+  }
+  
+  // Remove the first part if it looks like a project name (hyphen/underscore, not a known site folder)
+  if (parts.length > 0) {
+    const firstPart = parts[0];
+    const knownFolders = ['blogs', 'games', 'projects', 'blog', 'game'];
+    if ((firstPart.includes('-') || firstPart.includes('_')) && !knownFolders.includes(firstPart.toLowerCase())) {
+      // Likely the project folder name (e.g., project-website)
+      parts.shift();
     }
   }
-  return './';
+  
+  // Remaining parts represent depth from site root
+  const depth = parts.length;
+  return depth === 0 ? './' : '../'.repeat(depth);
 }
 
-async function adjustComponentPaths() {
-  const base = await detectBasePath();
+function adjustComponentPaths() {
+  const base = computeBasePath();
 
   // Update header nav links (use `data-page` attributes to map)
   const mapping = {
