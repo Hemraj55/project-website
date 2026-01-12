@@ -1,20 +1,53 @@
-function loadComponent(id, file, callback) {
-  fetch(file)
-    .then(res => res.text())
+// Try multiple candidate paths until a component is successfully fetched.
+async function fetchFirstText(candidates) {
+  for (const path of candidates) {
+    try {
+      const res = await fetch(path);
+      if (res.ok) return await res.text();
+    } catch (e) {
+      // ignore and try next
+    }
+  }
+  throw new Error('Could not load from any candidate paths');
+}
+
+function loadComponent(id, candidates, callback) {
+  fetchFirstText(candidates)
     .then(data => {
-      document.getElementById(id).innerHTML = data;
+      const el = document.getElementById(id);
+      if (el) el.innerHTML = data;
       if (callback) callback();
+    })
+    .catch(err => {
+      console.warn('Failed to load component', id, err);
     });
 }
 
+// Candidate lists try from nearest relative to more remote.
+const headerCandidates = [
+  './components/header.html',
+  'components/header.html',
+  '../components/header.html',
+  '../../components/header.html',
+  '/components/header.html'
+];
+
+const footerCandidates = [
+  './components/footer.html',
+  'components/footer.html',
+  '../components/footer.html',
+  '../../components/footer.html',
+  '/components/footer.html'
+];
+
 // Load header
-loadComponent("header", "../../components/header.html", () => {
+loadComponent('header', headerCandidates, () => {
   setActiveMenu();
   setupSearchListener();
 });
 
 // Load footer
-loadComponent("footer", "../../components/footer.html");
+loadComponent('footer', footerCandidates);
 
 function setActiveMenu() {
   const pathname = location.pathname;
