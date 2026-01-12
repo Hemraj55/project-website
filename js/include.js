@@ -48,7 +48,7 @@ loadComponent('header', headerCandidates, () => {
 });
 
 // Load footer
-loadComponent('footer', footerCandidates);
+loadComponent('footer', footerCandidates, adjustComponentPaths);
 
 // Adjust links and image paths inside loaded components so they point to the site root
 function computeBasePath() {
