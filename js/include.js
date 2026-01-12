@@ -51,18 +51,22 @@ loadComponent('header', headerCandidates, () => {
 loadComponent('footer', footerCandidates);
 
 // Adjust links and image paths inside loaded components so they point to the site root
-function getBasePath() {
-  const pathname = location.pathname; // e.g. /user/repo/path/page.html or /path/page.html
-  const parts = pathname.split('/').filter(Boolean);
-  // If last part looks like a file (has dot), remove it
-  if (parts.length && parts[parts.length - 1].includes('.')) parts.pop();
-  const depth = parts.length;
-  if (depth === 0) return './';
-  return '../'.repeat(depth);
+async function detectBasePath() {
+  const candidates = ['./', '../', '../../', '../../../', '../../../../'];
+  for (const prefix of candidates) {
+    try {
+      const url = prefix + 'index.html';
+      const res = await fetch(url, { method: 'HEAD' });
+      if (res && res.ok) return prefix;
+    } catch (e) {
+      // ignore and try next
+    }
+  }
+  return './';
 }
 
-function adjustComponentPaths() {
-  const base = getBasePath();
+async function adjustComponentPaths() {
+  const base = await detectBasePath();
 
   // Update header nav links (use `data-page` attributes to map)
   const mapping = {
@@ -82,7 +86,7 @@ function adjustComponentPaths() {
   const img = document.querySelector('#footer img');
   if (img) {
     const filename = img.getAttribute('src').split('/').pop();
-    img.setAttribute('src', base + 'media/' + filename);
+    img.setAttribute('src', base + 'media/' + encodeURIComponent(filename));
   }
 }
 
