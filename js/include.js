@@ -102,6 +102,42 @@ function adjustComponentPaths() {
     const filename = img.dataset.src.split('/').pop();
     img.setAttribute('src', base + 'media/' + filename);
   }
+
+  // Ensure favicon points to site/project-relative path so browser doesn't request site root /favicon.ico
+  ensureFavicon(base);
+}
+
+/**
+ * Ensure a favicon link exists and points to a project-relative path.
+ * Tries base + 'favicon.ico', then base + 'media/favicon.ico'.
+ */
+function ensureFavicon(base) {
+  try {
+    let iconHref = base + 'favicon.ico';
+    // Prefer an existing <link rel="icon"> or <link rel="shortcut icon">
+    let link = document.querySelector('link[rel="icon"], link[rel="shortcut icon"]');
+
+    // If none exists, create one
+    if (!link) {
+      link = document.createElement('link');
+      link.rel = 'icon';
+      document.head.appendChild(link);
+    }
+
+    // Use media/ subfolder as second choice if the first 404s; we cannot detect 404 synchronously,
+    // so prefer media location if project assets are stored in media folder.
+    // If your favicon lives in media/, change order below or place an actual favicon at <base>/favicon.ico.
+    const candidates = [base + 'favicon.ico', base + 'media/favicon.ico'];
+
+    // Set first candidate; browsers will fetch and may 404 if not present, but this avoids root request.
+    // If you want to test alternative, set the preferred candidate here.
+    link.href = candidates[0];
+
+    // Optionally, if you know favicons live under media, uncomment the next line to prefer media:
+    // link.href = candidates[1];
+  } catch (e) {
+    // silent fallback
+  }
 }
 
 function setActiveMenu() {
