@@ -99,8 +99,9 @@ function adjustComponentPaths() {
   // Update footer image paths
   const img = document.querySelector('#footer img');
   if (img) {
-    const filename = img.getAttribute('src').split('/').pop();
-    img.setAttribute('src', base + 'media/' + encodeURIComponent(filename));
+    const src = img.getAttribute('src');
+    const filename = src.split('/').pop();
+    img.setAttribute('src', base + 'media/' + filename);
   }
 }
 
